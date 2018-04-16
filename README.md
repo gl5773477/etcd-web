@@ -1,5 +1,5 @@
 # etcd_web
-基于etcdv3的后台管理系统。
+参考 https://github.com/silenceper/dcmp 修改的基于etcdv3的后台管理系统。
 
 目前还很简陋，仅支持键值的操作：增删改查。
 
