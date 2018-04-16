@@ -9,5 +9,5 @@
 
 启动
 ```sh
-./build.sh run web
+> ./build.sh run web
 ```
