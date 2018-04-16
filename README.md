@@ -7,6 +7,9 @@
 - 用户权限操作.
 - 集群操作.
 
+配置：conf/config.toml
+修改etcd服务地址Endpoints，默认为本机2379.
+
 启动
 ```sh
 > ./build.sh run web
