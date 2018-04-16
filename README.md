@@ -1,8 +1,8 @@
 # etcd_web
-Web management based etcdv3.
+基于etcdv3的后台管理系统。
 
-Now,it is still very simple and only support key-value management.
+目前还很简陋，仅支持键值的操作：增删改查。
 
-Improvement:
-- user auth.
-- cluster states.
+后续完善：
+- 用户权限操作.
+- 集群操作.
