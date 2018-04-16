@@ -1,5 +1,5 @@
 package config
 
 const (
-	SERVER_NAME = "BLOG"
+	SERVER_NAME = "ETCD-WEB"
 )

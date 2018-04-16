@@ -1,8 +1,10 @@
 package main
 
 import (
+	"config"
 	"fmt"
 	"handler"
+	"handler/base"
 	"html/template"
 	"log"
 	"net/http"
@@ -17,6 +19,10 @@ var (
 )
 
 func main() {
+	config.Init()
+	base.InitEtcd()
+	fmt.Println("config info:", config.C)
+
 	wd, err := os.Getwd()
 	if err != nil {
 		log.Fatalln(err)
@@ -29,7 +35,6 @@ func main() {
 	http.Handle("/dcmp/v1/key/new", handler.NewHWebKvsNew())
 	http.Handle("/dcmp/v1/key/delete", handler.NewHWebKvsDelete())
 	http.Handle("/dcmp/v1/key/save", handler.NewHWebKvsSave())
-	// http.Handle("/dcmp/v1/key/export", handler.NewHWebKvsExport())
 	http.HandleFunc("/login", index)
 	http.HandleFunc("/dcmp/v1/key/export", index)
 	err = http.ListenAndServe(":9090", nil)
@@ -39,17 +44,8 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "GET" {
-		t, _ := template.ParseFiles("./conf/web/index.html")
-		if err := t.Execute(w, nil); err != nil {
-			fmt.Println("[测] ======template failed:", err)
-		}
-
-	} else {
-		t, _ := template.ParseFiles("./conf/web/index.html")
-		if err := t.Execute(w, nil); err != nil {
-			fmt.Println("[测] ======template failed:", err)
-		}
-
+	t, _ := template.ParseFiles("./conf/web/index.html")
+	if err := t.Execute(w, nil); err != nil {
+		log.Println("template execute failed:", err)
 	}
 }

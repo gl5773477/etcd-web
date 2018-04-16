@@ -1,4 +1,4 @@
-bin
-/pkg
+bin/
+pkg/
 .DS_Store
 .vscode

@@ -24,7 +24,7 @@ func (c *HWebKvsList) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func formatEtcdNodes(node *client.Node, isDir bool) (treeNode *TreeNode) {
 	resp, err := base.EtcdCli.Get(context.TODO(), "config", clientv3.WithPrefix())
 	if err != nil {
-		fmt.Printf("[测] 获取key失败：%v\n", err)
+		fmt.Printf("获取key失败：%v\n", err)
 		return
 	}
 
@@ -43,7 +43,7 @@ func formatEtcdNodes(node *client.Node, isDir bool) (treeNode *TreeNode) {
 	treeNode = NewNode("config", "config", "")
 	for key, idxList := range keyMp {
 		treeNode.AddChild(idxList, valueMp[key])
-		fmt.Println("[测] 目录节点树：", treeNode.ToString())
+		fmt.Println("目录节点树：", treeNode.ToString())
 	}
 	return
 }

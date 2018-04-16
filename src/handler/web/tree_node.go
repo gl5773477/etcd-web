@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-// 允许存在重复key的节点树
 type TreeNode struct {
 	Key     string      `json:"name"`
 	Value   string      `json:"value"`

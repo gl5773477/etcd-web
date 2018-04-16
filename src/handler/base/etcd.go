@@ -1,8 +1,8 @@
 package base
 
 import (
+	"config"
 	"fmt"
-	"strings"
 	"time"
 
 	"github.com/coreos/etcd/clientv3"
@@ -12,10 +12,10 @@ var (
 	EtcdCli *clientv3.Client
 )
 
-func init() {
+func InitEtcd() {
 	var err error
 	EtcdCli, err = clientv3.New(clientv3.Config{
-		Endpoints:   strings.Split("10.10.91.206:12379", ","),
+		Endpoints:   config.C.Endpoints,
 		DialTimeout: 5 * time.Second,
 	})
 
