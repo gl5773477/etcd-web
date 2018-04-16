@@ -8,4 +8,6 @@
 - 集群操作.
 
 启动
-> ./build.sh run web
+```sh
+./build.sh run web
+```
